@@ -1,12 +1,12 @@
 const net = require('net');
-
+const { IP, PORT, NAME } = require('./constants');
 /**
  * Establishes connection with the game server
  */
 const connect = function() {
   const conn = net.createConnection({ 
-    host: 'localhost',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   
   // interpret incoming data as text
@@ -24,7 +24,7 @@ const connect = function() {
     const myMove = setInterval(() => {
       conn.write("Move: up");
     },50);*/
-    
+
     /*
     //moves th snake up 5 times right after connection establishes each have 50ms delay
     let timeDelay = 50;
@@ -39,7 +39,7 @@ const connect = function() {
     
   });
   //sending our name to the server
-  conn.write("Name: SZV")
+  conn.write(`Name: ${NAME}`)
 
   return conn;
 };
