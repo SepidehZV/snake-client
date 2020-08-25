@@ -19,7 +19,7 @@ const setupInput = function(conn) {
   stdin.resume();
   //handleUserInput function to exit with ^c
   stdin.on('data',handleUserInput );
-
+  // sending moves to the server
   stdin.on('data',(key) => {
     switch (key) {
       case 'w': 
@@ -33,6 +33,18 @@ const setupInput = function(conn) {
         break;
       case 'd':
         connection.write("Move: right");
+        break;
+      case 'z':
+        connection.write("Say: BUZ!");
+        break;
+      case 'x':
+        connection.write("Say: XOX");
+        break;
+      case 'h':
+        connection.write("Say: Hah");
+        break;
+      case 'l':
+        connection.write("Say: LOL");
         break;
     };
   } );
